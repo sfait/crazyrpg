@@ -321,7 +321,7 @@ body {
 
 .photo {
     width: 100%;
-    height: auto;
+    height: 300px;
     margin: 0.5rem;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -342,7 +342,7 @@ body {
 
 .photo img {
     width: 100%;
-    height: auto;
+    height: 300px;
     cursor: pointer;
 }
 
@@ -368,6 +368,7 @@ body {
 
 .modal-content {
     width: 90%;
+    height: 500px;
     background-color: var(--second-color);
     margin: auto;
     padding: 0.2rem;
@@ -381,6 +382,10 @@ body {
     -webkit-transition: 5s;
     -o-transition: 5s;
     transition: 5s;
+}
+
+.modal-content img {
+    height: 500px;
 }
 
 .modal-content img:hover {
@@ -487,7 +492,7 @@ body {
     }
 
     .modal-content {
-        width: 50%;
+        width: 70%;
     }
 
     .footer-wrapper {
