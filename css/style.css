@@ -437,7 +437,7 @@ body {
 
 /* team */
 .team {
-    padding: 2rem 0;
+    padding: 2rem 0 0;
     background: var(--second-color);
 }
 
