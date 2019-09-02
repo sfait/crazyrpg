@@ -252,7 +252,7 @@ body {
     margin-bottom: 2.5rem;
 }
 
-.hero-btn {
+.btn {
     padding: 0.5rem 2rem;
     color: var(--second-color);
     text-decoration: none;
@@ -262,7 +262,7 @@ body {
     transition: background 0.3s;
 }
 
-.hero-btn:hover {
+.btn:hover {
     background: var(--seventh-color);
 }
 
@@ -315,14 +315,52 @@ body {
 }
 
 .server-wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
+    padding: 2rem 0;
+    border: 1px solid var(--base-color);
+    position: relative;
+}
+
+.server-third-header {
+    display: none;
+}
+
+.status {
+    width: 100%;
+    line-height: 2;
+    margin-bottom: 3rem;
+}
+
+.pack-photos {
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.pack-photos img {
+    width: 100%;
+}
+
+.pack-btn {
+    color: var(--base-color);
+    border-color: var(--sixth-color);
+    transition: color 0.3s, border 0.3s;
+}
+
+.pack-btn:hover {
+    color: var(--fourth-color);
+    border-color: var(--fourth-color);
+}
+
+.download {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.pack-version {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
 }
 
 /* team */
@@ -611,9 +649,17 @@ body {
     }
 
     .hero-paragraph {
-        width: 50%;
+        width: 80%;
         line-height: 2;
         margin-bottom: 2rem;
+    }
+
+    .pack-photos {
+        flex-direction: row;
+    }
+
+    .pack-photos img {
+        width: 50%;
     }
 
     .team-wrapper {
