@@ -95,92 +95,126 @@ body {
     padding: 0;
 }
 
-.menu {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: none;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-.menu li {
-    margin-top: 0.5rem;
-}
-
-.menu a:hover {
-    text-decoration: underline;
-}
-
-/* hamburger */
 .hamburger {
-    width: 40px;
-    height: 35px;
-    position: absolute;
-    top: 20px;
-    right: 30px;
+    padding: 10px;
+    background: transparent;
+    border: 0;
+    margin: 0;
+    display: inline-block;
     cursor: pointer;
-    -webkit-transition: -webkit-transform 0.2s;
-    transition: -webkit-transform 0.2s;
-    -o-transition: transform 0.2s;
-    transition: transform 0.2s;
-    transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
-.hamburger span {
-    width: 40px;
-    height: 6px;
+.hamburger, .menu {
+    -webkit-transition: -webkit-transform .3s .1s ease-in-out;
+    transition: -webkit-transform .3s .1s ease-in-out;
+    -o-transition: transform .3s .1s ease-in-out;
+    transition: transform .3s .1s ease-in-out;
+    transition: transform .3s .1s ease-in-out, -webkit-transform .3s .1s ease-in-out;
+}
+
+.hamburger-box {
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    z-index: 3;
+}
+
+.hamburger-inner {
+    width: 100%;
+    height: 3px;
+    background: var(--second-color);
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 0;
+    -webkit-transition: background 0.3s 0.2s ease-in-out;
+    -o-transition: background 0.3s 0.2s ease-in-out;
+    transition: background 0.3s 0.2s ease-in-out;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+    content: "";
+    width: 100%;
+    height: 3px;
     background: var(--second-color);
     position: absolute;
     left: 0;
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 
-.hamburger span:nth-of-type(0) {
+.hamburger-inner::before {
+    top: -10px;
+}
+
+.hamburger-inner::after {
+    top: 10px;
+}
+
+.hamburger-active .hamburger-inner {
+    background: transparent;
+}
+
+.hamburger-active .hamburger-inner::before {
+    -webkit-transform: translateY(10px) rotate(45deg);
+    -ms-transform: translateY(10px) rotate(45deg);
+    transform: translateY(10px) rotate(45deg);
+    background: var(--base-color);
+}
+
+.hamburger-active .hamburger-inner::after {
+    -webkit-transform: translateY(-10px) rotate(-45deg);
+    -ms-transform: translateY(-10px) rotate(-45deg);
+    transform: translateY(-10px) rotate(-45deg);
+    background: var(--base-color);
+}
+
+.menu {
+    height: 50vh;
+    width: 100%;
+    background: var(--second-color);
+    position: absolute;
     top: 0;
+    left: 0;
+    -webkit-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    transform: translateY(-100%);
+    z-index: 2;
 }
 
-.hamburger span:nth-of-type(1) {
-    top: calc(50% - 3px);
+.menu-list {
+    margin-top: 50px;
+    list-style: none;
+    padding: 0;
 }
 
-.hamburger span:last-of-type {
-    bottom: 0;
+.menu-list li {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.hamburger.active {
-    -webkit-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
+.menu-list a {
+    text-decoration: none;
+    color: var(--base-color);
+    -webkit-transition: color 0.3s;
+    -o-transition: color 0.3s;
+    transition: color 0.3s;
 }
 
-.hamburger.active span:nth-child(1) {
-    top: calc(50% - 3px);
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+.menu-list a:hover {
+    color: var(--fourth-color);
 }
 
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    bottom: calc(50% - 3px);
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-
-.show-menu {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-}
-
-.hide-header {
-    display: none;
+.menu-active {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
 }
 
 /* hero */
@@ -308,16 +342,16 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .team-header {
@@ -333,14 +367,14 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .admin {
@@ -354,8 +388,8 @@ body {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     position: relative;
 }
 
@@ -466,11 +500,11 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
     -webkit-transition: 5s;
     -o-transition: 5s;
     transition: 5s;
@@ -541,17 +575,31 @@ body {
 /* media queries*/
 @media only screen and (min-width: 1000px) {
     .menu {
+        height: 10vh;
+        background: transparent;
+        position: static;
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    .menu-list {
+        margin-top: 2rem;
+        padding: 0;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
     }
 
-    .menu li {
-        margin-top: 0;
+    .menu-list li {
+        margin-bottom: 0;
+        margin-left: 1rem;
+    }
+
+    .menu-list a {
+        font-size: 1rem;
+        text-decoration: none;
+        color: var(--second-color);
     }
 
     .hamburger {
@@ -579,11 +627,11 @@ body {
     .team-boxes {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
         -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
     }
 
     .admin {
@@ -594,8 +642,8 @@ body {
         width: 50%;
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
     }
 
     .team-box::before {
