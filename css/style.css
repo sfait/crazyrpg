@@ -393,7 +393,6 @@ body {
 }
 
 .team-wrapper {
-    width: 100%;
     padding: 2rem 0.5rem 3rem;
     border: 1px solid var(--sixth-color);
     text-align: center;
@@ -877,5 +876,9 @@ body {
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
+    }
+
+    .pack-photos img {
+        width: 50%;
     }
 }
