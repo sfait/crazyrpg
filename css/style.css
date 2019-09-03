@@ -345,21 +345,21 @@ body {
 
 .status {
     width: 100%;
-    position: relative;
-}
-
-.status::after {
-    content: "";
-    width: 1px;
-    height: 120%;
-    border: none;
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 .recommended {
     width: 100%;
+    position: relative;
+}
+
+.recommended::before {
+    content: "";
+    width: 1px;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .recommended-list {
@@ -792,7 +792,7 @@ body {
         position: relative;
     }
 
-    .status::after {
+    .recommended::before {
         border-left: 1px solid var(--sixth-color);
     }
 
