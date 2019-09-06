@@ -451,15 +451,6 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    position: relative;
-}
-
-.team-box::before {
-    content: "";
-    width: 1px;
-    height: 100%;
-    background: var(--sixth-color);
-    position: static;
 }
 
 .team-list {
@@ -831,10 +822,6 @@ body {
         -webkit-box-direction: normal;
         -ms-flex-direction: row;
         flex-direction: row;
-    }
-
-    .team-box::before {
-        position: absolute;
     }
 
     .team-list {
