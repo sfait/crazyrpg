@@ -53,17 +53,37 @@ function showAnimations() {
         useScrollReveal();
     }
 
-    mobile.addListener( function(mobile) {
+    mobile.addListener(function(mobile) {
         if (mobile.matches) {
             useScrollReveal();
         }
     });
 };
 
+function changeTitle() {
+    const message = "Edheldor Cię potrzebuje!";
+    let original;
+
+    window.addEventListener("focus", function() {
+        if (original) {
+            document.title = original;
+        }
+    })
+
+    window.addEventListener("blur", function() {
+        const title = document.title;
+        if (title != message) {
+            original = title;
+        }
+        document.title = message;
+    })
+}
+
 const init = () => {
     showHamburgerMenu();
     showPhoto();
     showAnimations();
+    changeTitle();
 }
 
 document.addEventListener("DOMContentLoaded", init);
